@@ -48,7 +48,7 @@ Object.keys(errors).map((key: string) => {
 return haveError;
 }
 
-private HandleSubmit = async(
+private handleSubmit = async(
     e: React.FormEvent<HTMLFormElement>
 ): Promise<void> => {
     e.preventDefault();
@@ -65,37 +65,42 @@ return true;
 }
 
 public render() {
-    const { submitSuccess, errors } = this.state; 
+    const { submitSuccess, errors } = this.state;
     return (
-        <form onSubmit={this.HandleSubmit} noValidate={true}>
-            <div className="container">
-            {/* TODO - render fields*/}
-                <div className="form-group">
-                    <button 
-                    type="submit"
-                    className="btn btn-primary"
-                    disabled={this.haveErrors(errors)}
-                    >
-                      submit
-                    </button>
-                </div>
-                {submitSuccess} (
-                    <div className="alert alert-info" role="alert">
-                        The form was successfully submitted! 
-                    </div>
-                )}              
-                {submitSuccess === false &&
-                !this.haveErrors(errors) } (
-                    <div className="alert alert-danger" role="alert">
-                    Sorry, an unexpected error has occurred
-                    </div>
-                )}
+      <form onSubmit={this.handleSubmit} noValidate={true}>
+        <div className="container">
+          {/* TODO - render fields */}
+          <div className="form-group">
+            <button
+              type="submit"
+              className="btn btn-primary"
+              disabled={this.haveErrors(errors)}
+            >
+              Submit
+            </button>
+          </div>
+          {submitSuccess && (
+            <div className="alert alert-info" role="alert">
+              The form was successfully submitted!
             </div>
-         </form>
-         );
-     }
- }
-                
+          )}
+          {submitSuccess === false &&
+            !this.haveErrors(errors) && (
+              <div className="alert alert-danger" role="alert">
+                Sorry, an unexpected error has occurred
+              </div>
+            )}
+          {submitSuccess === false &&
+            this.haveErrors(errors) && (
+              <div className="alert alert-danger" role="alert">
+                Sorry, the form is invalid. Please review, adjust and try again
+              </div>
+            )}
+        </div>
+      </form>
+    );
+  }
+}    
                 
                 
                 
