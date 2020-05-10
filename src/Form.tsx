@@ -120,6 +120,8 @@ public render() {
     
 
 import * as React from "react";
+import { field } from "./Field";
+
 
 interface IFormProps {
   /* The http path that the form will be posted to */
@@ -247,3 +249,4 @@ export class Form extends React.Component<IFormProps, IFormState> {
     );
   }
 }
+export default Form;

@@ -33,7 +33,7 @@ import { Field } from "./Field";
 export const ContactUsForm: React.SFC = () => {
   return (
     <Form
-      action="http://localhost:4351/api/contactus"
+      action="http://localhost:3000/api/contactus"
       render={() => (
         <React.Fragment>
           <div className="alert alert-info" role="alert">
@@ -54,3 +54,4 @@ export const ContactUsForm: React.SFC = () => {
     />
   );
 };
+export default ContactUsForm;

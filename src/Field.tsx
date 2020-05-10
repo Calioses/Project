@@ -101,6 +101,8 @@
 
 import * as React from "react";
 import { IErrors } from "./Form";
+import { field } from "./Field";
+
 
 /* The available editors for the field */
 type Editor = "textbox" | "multilinetextbox" | "dropdown";
@@ -197,3 +199,5 @@ export const Field: React.SFC<IFieldProps> = ({
 Field.defaultProps = {
   editor: "textbox"
 };
+
+export default Field;
