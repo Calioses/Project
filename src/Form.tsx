@@ -1,8 +1,10 @@
 import * as React from "react";
-import { render } from "@testing-library/react";
+
 
 interface IFormProps {
     action: string;
+
+    render: () => React.ReactNode;
 }
 export interface IValues {
     [key: string]: any;
@@ -69,7 +71,9 @@ public render() {
     return (
       <form onSubmit={this.handleSubmit} noValidate={true}>
         <div className="container">
-          {/* TODO - render fields */}
+
+          {this.props.render()}
+
           <div className="form-group">
             <button
               type="submit"
