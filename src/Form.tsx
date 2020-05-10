@@ -120,7 +120,7 @@ public render() {
     
 
 import * as React from "react";
-import { field } from "./Field";
+import { Field } from "./Field";
 
 
 interface IFormProps {

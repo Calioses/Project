@@ -101,7 +101,7 @@
 
 import * as React from "react";
 import { IErrors } from "./Form";
-import { field } from "./Field";
+import { Field } from "./Field";
 
 
 /* The available editors for the field */
