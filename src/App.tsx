@@ -1,16 +1,28 @@
-import * as React from "react";
+import React from "react";
+import { Row, Col } from "reactstrap";
+import ContactUsForm from "./Views/ContactUsForm";
 
-import ContactUsForm from "./ContactUsForm";
 
 
-
-class App extends React.Component {
-  public render() {
+export default class App extends React.Component {
+  render() {
     return (
       <div className="mt-3">
+        <Row>
+          <Col md="3">
+          
+          </Col>
 
+          <Col md="6">
+          <ContactUsForm />
+          </Col>
 
-        {/* TODO - reference "contact us" form*/}
+          <Col md="3">
+          
+          </Col>
+        </Row>
+
+       
 
 
       </div>
@@ -18,4 +30,3 @@ class App extends React.Component {
   }
 }
 
-export default App;

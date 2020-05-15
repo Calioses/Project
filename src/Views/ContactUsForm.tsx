@@ -26,16 +26,15 @@
 //     );
 // };
 
-import * as React from "react";
-import { Form } from "./Form";
-import { Field } from "./Field";
+import React,{Component} from "react";
+import {Form} from "reactstrap";
+import Field from "../Components/Field";
 
-export const ContactUsForm: React.SFC = () => {
+export default class ContactUsForm extends Component  {
+ render(){
   return (
-    <Form
-      action="http://localhost:3000/contactus"
-      render={() => (
-        <React.Fragment>
+    <Form>
+     
           <div className="alert alert-info" role="alert">
             Enter the information below and we'll get back to you as soon as we
             can.
@@ -49,9 +48,9 @@ export const ContactUsForm: React.SFC = () => {
             options={["", "Marketing", "Support", "Feedback", "Jobs"]}
           />
           <Field id="notes" label="Notes" editor="multilinetextbox" />
-        </React.Fragment>
-      )}
-    />
+        
+        </Form>
   );
+ }
+  
 };
-export default ContactUsForm;
