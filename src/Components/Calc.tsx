@@ -5,7 +5,8 @@ import { Input } from "reactstrap";
 import { FormGroup, Button } from "reactstrap";
 import { observable, action, } from "mobx";
 import { observer } from "mobx-react";
-import DomainStore from "../Store/DomainStore";
+import INumber from "../Interfaces/INumber";
+import { NewNumber } from "../Interfaces/INumber";
 import { UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 
@@ -13,8 +14,12 @@ import { UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from
 
 @observer
 export default class Calc extends Component{
-    @observable num1: number
-    @observable num2: number;
+    @observable num1: INumber = NewNumber();
+    @observable num2: INumber = NewNumber();
+
+    @action
+    
+
 render(){
     return(
 

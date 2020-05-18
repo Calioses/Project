@@ -13,6 +13,7 @@ const DS: DomainStore = new DomainStore();
 
 @observer
 export default class ContactUsForm extends Component  {
+  
   @action
   handleType = (e: React.ChangeEvent<HTMLInputElement>) => {
     const id: string | null = e.currentTarget.getAttribute("id");
