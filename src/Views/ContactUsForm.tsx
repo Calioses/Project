@@ -3,37 +3,41 @@ import React,{Component} from "react";
 import {Form} from "reactstrap";
 import Field from "../Components/Field";
 import { Input } from "reactstrap";
-import { FormGroup } from "reactstrap";
+import { FormGroup, Button } from "reactstrap";
 import { observable, action, } from "mobx";
 import { observer } from "mobx-react";
+import DomainStore from "../Store/DomainStore";
+
+
+const DS: DomainStore = new DomainStore();
 
 @observer
 export default class ContactUsForm extends Component  {
-  @observable name: string = "";
-  @observable email: string = "";  
-  @observable reason: string = ""; 
-  @observable notes: string = ""; 
- 
   @action
   handleType = (e: React.ChangeEvent<HTMLInputElement>) => {
     const id: string | null = e.currentTarget.getAttribute("id");
     if(id==="name"){
-      this.name=e.currentTarget.value;
+      DS.data.name=e.currentTarget.value;
     }
     else if(id==="email"){
-      this.email=e.currentTarget.value;
+      DS.data.email=e.currentTarget.value;
     }
     else if(id==="reason"){
-      this.reason=e.currentTarget.value;
+      DS.data.reason=e.currentTarget.value;
     }
     else if(id==="notes"){
-      this.notes=e.currentTarget.value;
+      DS.data.notes=e.currentTarget.value;
     }
+  }
+
+  submit= (e:React.FormEvent<HTMLFormElement>) =>{
+    e.preventDefault();
+    DS.postContact();
   }
 
  render(){
   return (
-    <Form>
+    <Form onSubmit={this.submit}>
      
           <div className="alert alert-info" role="alert">
             Enter the information below and we'll get back to you as soon as we
@@ -49,7 +53,8 @@ export default class ContactUsForm extends Component  {
             name="name" 
             type="text"
             onChange={this.handleType}
-            value={this.name}
+            value={DS.data.name}
+            disabled={DS.loading}
             />
           </FormGroup>
 
@@ -62,7 +67,8 @@ export default class ContactUsForm extends Component  {
             name="email"
             type="text"
             onChange={this.handleType}
-            value={this.email}
+            value={DS.data.email}
+            disabled={DS.loading}
             />
           </FormGroup>
           
@@ -75,7 +81,8 @@ export default class ContactUsForm extends Component  {
             name="reason" 
             onChange={this.handleType}
             options={["", "Marketing", "Support", "Feedback", "Jobs"]}
-            value={this.reason}
+            value={DS.data.reason}
+            disabled={DS.loading}
             type="text"
             />
           </FormGroup>
@@ -90,9 +97,21 @@ export default class ContactUsForm extends Component  {
             id="notes"
             name="notes" 
             onChange={this.handleType}
-            value={this.notes} 
+            value={DS.data.notes}
+            disabled={DS.loading} 
             />
           </FormGroup>
+
+          <p>
+            <Button 
+              color="primary"
+              size="lg"
+              disabled={DS.loading}
+            >
+              Submit
+            </Button>
+          </p>
+
 
         </Form>
   );

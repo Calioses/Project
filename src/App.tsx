@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col } from "reactstrap";
-import ContactUsForm from "./Views/ContactUsForm";
+import Calc from "./Components/Calc";
 
 
 
@@ -13,13 +13,11 @@ export default class App extends React.Component {
           
           </Col>
 
-          <Col md="6">
-          <ContactUsForm />
+          <Col md="9">
+          <Calc />
           </Col>
 
-          <Col md="3">
           
-          </Col>
         </Row>
 
        
