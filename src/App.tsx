@@ -16,7 +16,7 @@ export default class App extends React.Component {
 
           <Col md="6">
           <Calc />
-          <ContactUsForm/>
+          
           </Col>
           <Col md="3">
           
