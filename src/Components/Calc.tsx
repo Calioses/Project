@@ -76,9 +76,9 @@ render(){
             />
             </label>
 
-            {/* <UncontrolledDropdown>
+            <UncontrolledDropdown>
       <DropdownToggle caret>
-      Pick an oper
+      Pick an operation
       </DropdownToggle>
       <DropdownMenu>
         <DropdownItem>+</DropdownItem>
@@ -86,9 +86,9 @@ render(){
         <DropdownItem>x</DropdownItem>
         <DropdownItem>÷</DropdownItem>
       </DropdownMenu>
-    </UncontrolledDropdown> */}
+    </UncontrolledDropdown>
 
-{/* <p>
+<p>
 <Button 
   color="primary"
   size="lg"
@@ -96,7 +96,7 @@ render(){
 >
   Submit
 </Button>
-</p> */}
+</p>
 </FormGroup>
         )
     }
